@@ -1,0 +1,14 @@
+<h1>Listing Expends</h1>
+
+<table >
+  <tr>
+    <th>Title</th>
+    <th>Price</th>
+  </tr>
+  <% @expend.each do |expend| %>
+  <tr>
+    <td><%= expend.title %></td>
+    <td><%= expend.price %></td>
+  </tr>
+  <% end %>
+</table >
