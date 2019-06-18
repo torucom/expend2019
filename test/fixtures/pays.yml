@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payable: MyString
+  cost: 1
+  expend: one
+
+two:
+  payable: MyString
+  cost: 1
+  expend: two

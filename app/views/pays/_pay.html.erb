@@ -1,0 +1,15 @@
+<p>
+  <strong>payable:</strong>
+  <%= pay.payable %>
+</p>
+
+<p>
+  <strong>cost:</strong>
+  <%= pay.cost %>
+</p>
+
+<p>
+  <%= link_to 'Destroy', [pay.expend, pay],
+      method: :delete,
+      data:{ confirm: 'Are you sure?' } %>
+</p>

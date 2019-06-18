@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190614103205) do
+ActiveRecord::Schema.define(version: 20190618092725) do
 
   create_table "expends", force: :cascade do |t|
     t.string "title"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pays", force: :cascade do |t|
+    t.string "payable"
+    t.integer "cost"
+    t.integer "expend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expend_id"], name: "index_pays_on_expend_id"
   end
 
 end

@@ -7,3 +7,11 @@
 <strong >Text: </strong >
 <%= @expend.price %>
 </p>
+
+<h2>Pays</h2>
+<%= render @expend.pays %>
+
+<h2>Add a Payment</h2>
+<%= render "pays/form" %>
+
+<%= link_to 'Back', expends_path %> | <%= link_to 'Edit', edit_expend_path(@expend) %>
