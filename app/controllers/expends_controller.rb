@@ -40,7 +40,7 @@ class ExpendsController < ApplicationController
   def destroy
     @expend = Expend.find(params[:id])
     @expend.destroy
-    redirect_to expends_path
+    redirect_to @expend
   end
   
   private

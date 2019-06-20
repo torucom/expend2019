@@ -1,20 +1,20 @@
-<h1>Listing Expends</h1>
-<%= link_to 'New expend',new_expend_path %>
+<% provide(:title, "メインページ") %>
+
+<h1>小払い管理ページ</h1>
+<%= link_to '仮払いを登録',new_expend_path %>
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="2" ></th>
+    <th>仮払い名目</th>
+    <th>仮払金額</th>
+    <th>操作</th>
   </tr>
 
   <% @expends.each do |expend| %>
   <tr>
     <td><%= expend.title %></td>
     <td><%= expend.price %></td>
-    <td><%= link_to 'Show', expend_path(expend) %></td>
-    <td><%= link_to 'Edit', edit_expend_path(expend) %></td>
-    <td><%= link_to 'Destroy', expend_path(expend), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    <td><%= link_to 'Show', expend_path(expend) %> | <%= link_to 'Edit', edit_expend_path(expend) %> | <%= link_to 'Destroy', expend_path(expend), method: :delete, data: {confirm: 'o本当に削除しますか?'} %></td>
   </tr>
   <% end %>
 </table>
