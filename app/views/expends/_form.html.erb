@@ -1,6 +1,5 @@
 <%= form_for @expend do |f| %>
 <p>
-
 <%= f.text_field :title, placeholder: '例：郵便局（切手購入）' %>
 <% if @expend.errors.messages[:title].any? %>
 <span class="error"><%= @expend.errors.messages[:title][1] %></span>
@@ -8,7 +7,6 @@
 </p>
 
 <p>
-
 <%= f.text_field :price, placeholder: '（カンマなし半角で入力）' %>
 <% if @expend.errors.messages[:price].any? %>
 <span class="error"><%= @expend.errors.messages[:price][0] %></span>
@@ -16,7 +14,6 @@
 </p>
 
 <p>
-<%= f.submit %>
+  <%= f.submit %>
 </p>
-
 <% end %>
