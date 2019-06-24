@@ -1,15 +1,20 @@
-<p>
-  <strong>payable:</strong>
-  <%= pay.payable %>
-</p>
-
-<p>
-  <strong>cost:</strong>
-  <%= pay.cost %>
-</p>
-
-<p>
-  <%= link_to 'Destroy', [pay.expend, pay],
-      method: :delete,
-      data:{ confirm: 'Are you sure?' } %>
-</p>
+<table>
+  <tr>
+    <th>支払日</th>
+    <th>支払先</th>
+    <th>支払額</th>
+  </tr>
+  <% @expend.pays.each do |pay| %>
+    <tr>
+      <td class="date"><%= pay.updated_at.strftime("%Y.%m.%d") %></td>
+      <td class="dest"><%= pay.payable %></td>
+      <td class="price">¥<%= pay.cost %> <%= link_to '[x]',
+                                              expend_pay_path(@expend, pay),
+                                              method: :delete,
+                                              class: 'command',
+                                              data: { confirm: 'Sure?' } %></td>
+    </tr>
+  <% end %>
+  <td colspan="2">total</td>
+  <td class="price">¥<%= @expend.pays.sum(:cost).to_s(:delimited) %></td>
+</table>

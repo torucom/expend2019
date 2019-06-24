@@ -1,11 +1,11 @@
 <%= form_for([@expend, @expend.pays.build]) do |f| %>
 <p>
-<%= f.label :payable %><br>
+<%= f.label :支払先 %><br>
 <%= f.text_field :payable %>
 </p>
 
 <p>
-<%= f.label :cost %><br>
+<%= f.label :支払額 %><br>
 <%= f.text_field :cost %>
 </p>
 

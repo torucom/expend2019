@@ -2,17 +2,94 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table {
-  border-collapse: collapse;
-  th, td {
-      padding: .5em;
-      border: solid 1px #444;
+@mixin boxBtn ($coler, $hover){
+  font: normal 14px/1 sans-serif;
+  display: inline-block;
+  margin: auto;
+  padding: .5em 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  background: $coler;
+  color: #fff;
+  &:hover {
+    background: $hover;
+    text-decoration: none;
+    transition-duration:.3s;
+    transition-timing-function:ease-in-out;
+    &:after {
+      transition-duration:.3s;
+      transition-timing-function:ease-in-out;
+      background: $hover;
+    }
   }
-  th{
-      color: white;
-      background: red;
+}
+
+body{
+  font: normal 14px/1 sans-serif;
+}
+
+
+
+
+.container{
+  width: 680px;
+  margin: auto;
+  h1{
+    margin: .5em 0 1em;
+    padding: .5em 0;
+    color: black;
+    text-align: center;
+    background: #efefef;
   }
-  tr:nth-child(odd) {
-    background-color: #efefef;
+  h2{
+    margin-bottom: 1em;
+    padding-bottom: .5em;
+    font: normal 21px/1 sans-serif;
+    border-bottom: 1px dashed #ccc;
+  }
+  .add{
+    margin: 1em 0;
+    text-align: right;
+    .add-new{
+      display: block;
+      @include boxBtn (#3a67de, #4fa2f6);
+    }
+  }
+  table {
+    width: 100%;
+    font-size: 14px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #bbb;
+    border-collapse: collapse;
+    th {
+      border-width: 1px;
+      padding: 5px;
+      border-style: solid;
+      border-color: #bbb;
+      background-color: #efefef;
+    }
+    td {
+      border-width: 1px;
+      padding: 5px;
+      border-style: solid;
+      border-color: #bbb;
+      background-color: #ffffff;
+      a{
+        margin: 0 .5em;
+        text-decoration: none;
+      }
+    }
+    .date{
+      width: 35%;
+    }
+    .price {
+      width: 30%;
+      text-align: right;
+    }
+     .dest {
+       width: 35%;
+       text-align: center;
+    }
   }
 }

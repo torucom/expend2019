@@ -1,20 +1,35 @@
 <% provide(:title, "メインページ") %>
 
-<h1>小払い管理ページ</h1>
-<%= link_to '仮払いを登録',new_expend_path %>
+<div class="container">
+  <h1>小払い管理ページ</h1>
+  <h2><i class="fas fa-coins"></i> 仮払い一覧</h2>
+  <div class="add">
+    <%= link_to new_expend_path, class: 'add-new', method: :get do %>
+      <i class="fa fa-plus"></i> 仮払いを登録
+    <% end %>
+  </div>
+  <table>
+    <tr>
+      <th>仮払い名目</th>
+      <th>仮払金額</th>
+      <th>操作</th>
+    </tr>
 
-<table>
-  <tr>
-    <th>仮払い名目</th>
-    <th>仮払金額</th>
-    <th>操作</th>
-  </tr>
-
-  <% @expends.each do |expend| %>
-  <tr>
-    <td><%= expend.title %></td>
-    <td><%= expend.price %></td>
-    <td><%= link_to 'Show', expend_path(expend) %> | <%= link_to 'Edit', edit_expend_path(expend) %> | <%= link_to 'Destroy', expend_path(expend), method: :delete, data: {confirm: 'o本当に削除しますか?'} %></td>
-  </tr>
-  <% end %>
-</table>
+    <% @expends.each do |expend| %>
+      <tr>
+        <td class="date"><%= expend.title %></td>
+        <td class="price">¥ <%= expend.price %></td>
+        <td class="dest">
+          <%= link_to  expend_path(expend), method: :get do %>
+            <i class="fa fa-eye"></i>Show
+          <% end %>
+          <%= link_to edit_expend_path(expend), method: :get do %>
+            <i class="fa fa-edit"></i>Edit
+          <% end %>
+          <%= link_to expend_path(expend),  method: :delete, data: {confirm: '本当に削除しますか?'} do %>
+            <i class="fa fa-minus-circle"></i>Destroy
+          <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

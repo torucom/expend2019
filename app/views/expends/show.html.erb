@@ -1,17 +1,45 @@
-<p>
-<strong >Title: </strong >
-<%= @expend.title %>
-</p>
+<div class="container">
+  <h1>小払い管理ページ</h1>
+  <h2><i class="fas fa-coins"></i> <%= @expend.title %></h2>
 
-<p>
-<strong >Text: </strong >
-<%= @expend.price %>
-</p>
+  <table>
+    <tr>
+      <th><i class="fas fa-sign-in-alt"></i> 仮払い額</th>
+      <th><i class="fas fa-sign-out-alt"></i> 支払い額</th>
+      <th><i class="fas fa-piggy-bank"></i> 残金</th>
+    </tr>
+    <tr>
+      <td>¥ <%= @expend.price.to_s(:delimited) %></td>
+      <td>¥ <%= @expend.pays.sum(:cost).to_s(:delimited) %></td>
+      <td>¥ <%= (@expend.price) - (@expend.pays.sum(:cost)) %></span></td>
+    </tr>
+  </table>
+  
+  <h2><i class="fas fa-sign-out-alt"></i> 支払い</h2>
+  <table>
+    <tr>
+      <th>支払日</th>
+      <th>支払先</th>
+      <th>支払額</th>
+    </tr>
+    <% @expend.pays.each do |pay| %>
+      <tr>
+        <td class="date"><%= pay.updated_at.strftime("%Y.%m.%d") %></td>
+        <td class="dest"><%= pay.payable %></td>
+        <td class="price">¥<%= pay.cost %>
+          <%= link_to expend_pay_path(@expend, pay), method: :delete, data: {confirm: '本当に削除しますか?'} do %>
+            <i class="fas fa-ban"></i> 削除
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <td colspan="2">total</td>
+    <td class="price">¥<%= @expend.pays.sum(:cost).to_s(:delimited) %></td>
+  </table>
 
-<h2>Pays</h2>
-<%= render @expend.pays %>
+  <h2>支払いを登録</h2>
+  <%= render "pays/form" %>
 
-<h2>Add a Payment</h2>
-<%= render "pays/form" %>
+  <%= link_to 'Back', expends_path %> | <%= link_to 'Edit', edit_expend_path(@expend) %>
 
-<%= link_to 'Back', expends_path %> | <%= link_to 'Edit', edit_expend_path(@expend) %>
+</div>
