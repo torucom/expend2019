@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>小払い管理ページ</h1>
+  <h1>小払い管理</h1>
   <h2><i class="fas fa-coins"></i> <%= @expend.title %></h2>
 
   <table>
@@ -9,9 +9,9 @@
       <th><i class="fas fa-piggy-bank"></i> 残金</th>
     </tr>
     <tr>
-      <td>¥ <%= @expend.price.to_s(:delimited) %></td>
-      <td>¥ <%= @expend.pays.sum(:cost).to_s(:delimited) %></td>
-      <td>¥ <%= (@expend.price) - (@expend.pays.sum(:cost)) %></span></td>
+      <td class="price">¥ <%= @expend.price.to_s(:delimited) %></td>
+      <td class="price">¥ <%= @expend.pays.sum(:cost).to_s(:delimited) %></td>
+      <td class="price"><span class="hilight">¥ <%= (@expend.price) - (@expend.pays.sum(:cost)) %></span></td>
     </tr>
   </table>
   
@@ -28,7 +28,7 @@
         <td class="dest"><%= pay.payable %></td>
         <td class="price">¥<%= pay.cost %>
           <%= link_to expend_pay_path(@expend, pay), method: :delete, data: {confirm: '本当に削除しますか?'} do %>
-            <i class="fas fa-ban"></i> 削除
+            <i class="fas fa-ban"></i>
           <% end %>
         </td>
       </tr>
@@ -37,9 +37,9 @@
     <td class="price">¥<%= @expend.pays.sum(:cost).to_s(:delimited) %></td>
   </table>
 
-  <h2>支払いを登録</h2>
-  <%= render "pays/form" %>
-
-  <%= link_to 'Back', expends_path %> | <%= link_to 'Edit', edit_expend_path(@expend) %>
-
+  <div class="add-new">
+    <h2>支払いを登録</h2>
+    <%= render "pays/form" %>
+    <%= link_to 'Back', expends_path %> | <%= link_to 'Edit', edit_expend_path(@expend) %>
+  </div>
 </div>

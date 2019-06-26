@@ -1,8 +1,8 @@
 <% provide(:title, "支払い追加") %>
+<div class="container">
+  <h1>小払い入金</h1>
 
-<h1>小払い入金</h1>
-<%= link_to 'Enxpnds List', controller: 'expends' %>
+  <%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back',expends_path %>
+  <%= link_to 'Back',expends_path %>
+</div>

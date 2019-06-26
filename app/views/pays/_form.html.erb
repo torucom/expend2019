@@ -1,16 +1,16 @@
 <%= form_for([@expend, @expend.pays.build]) do |f| %>
-<p>
-<%= f.label :支払先 %><br>
-<%= f.text_field :payable %>
-</p>
+  <p>
+    <%= f.label :支払先 %><br>
+    <%= f.text_field :payable, placeholder: '例：郵便局（切手購入）' %>
+  </p>
 
-<p>
-<%= f.label :支払額 %><br>
-<%= f.text_field :cost %>
-</p>
+  <p>
+    <%= f.label :支払額 %><br>
+    <%= f.text_field :cost, placeholder: '（カンマなし半角で入力）' %>
+  </p>
 
-<p>
-<%= f.submit %>
-</p>
+  <p>
+    <%= f.submit %>
+  </p>
 
 <% end %>

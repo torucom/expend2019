@@ -28,9 +28,6 @@ body{
   font: normal 14px/1 sans-serif;
 }
 
-
-
-
 .container{
   width: 680px;
   margin: auto;
@@ -38,8 +35,8 @@ body{
     margin: .5em 0 1em;
     padding: .5em 0;
     color: black;
+    font: bold 1.5rem/1.8 sans-serif;
     text-align: center;
-    background: #efefef;
   }
   h2{
     margin-bottom: 1em;
@@ -57,6 +54,7 @@ body{
   }
   table {
     width: 100%;
+    margin-bottom: 5em;
     font-size: 14px;
     color: #333333;
     border-width: 1px;
@@ -86,10 +84,23 @@ body{
     .price {
       width: 30%;
       text-align: right;
+      .hilight{
+        color: red;
+      }
     }
-     .dest {
-       width: 35%;
-       text-align: center;
+    .operat {
+      width: 35%;
+      text-align: center;
     }
+    .dest {
+      width: 35%;
+      text-align: left;
+    }
+  }
+}
+
+@media print{
+  .add-new{
+    display: none;
   }
 }

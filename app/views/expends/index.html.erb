@@ -17,12 +17,13 @@
 
     <% @expends.each do |expend| %>
       <tr>
-        <td class="date"><%= expend.title %></td>
-        <td class="price">¥ <%= expend.price %></td>
-        <td class="dest">
+        <td class="date">
           <%= link_to  expend_path(expend), method: :get do %>
-            <i class="fa fa-eye"></i>Show
+            <%= expend.title %>
           <% end %>
+        </td>
+        <td class="price">¥ <%= expend.price %></td>
+        <td class="operat">
           <%= link_to edit_expend_path(expend), method: :get do %>
             <i class="fa fa-edit"></i>Edit
           <% end %>

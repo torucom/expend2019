@@ -1,6 +1,6 @@
 <%= form_for @expend do |f| %>
 <p>
-<%= f.text_field :title, placeholder: '例：郵便局（切手購入）' %>
+<%= f.text_field :title, placeholder: '例：○月の仮払い' %>
 <% if @expend.errors.messages[:title].any? %>
 <span class="error"><%= @expend.errors.messages[:title][1] %></span>
 <% end %>
